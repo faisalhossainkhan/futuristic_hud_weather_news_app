@@ -10,7 +10,7 @@ const String kNewsApiKey = '950a2861b71a40e9a07d17ae1e6d08a1';
 
 /// OpenRouter AI API Key
 /// Get your API key at: https://openrouter.ai/
-const String kOpenRouterApiKey = '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';
+const String kOpenRouterApiKey = 'Open_router_api_key';
 
 /// Default city for weather
 const String kDefaultCity = 'Dhaka';
