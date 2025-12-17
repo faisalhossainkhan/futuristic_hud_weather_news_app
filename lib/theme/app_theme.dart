@@ -3,6 +3,7 @@ import '../constants/app_constants.dart';
 
 /// App Theme System
 /// Provides consistent HUD-style theming with retro monospace typography
+/// IMPROVED: Better mobile readability with larger font sizes and better contrast
 class AppTheme {
   /// THEME CONFIGURATION
   /// Get complete MaterialApp theme
@@ -20,82 +21,96 @@ class AppTheme {
         surface: kHudBackground,
       ),
 
-      // Typography - Retro Monospace
+      // Typography - Retro Monospace with IMPROVED readability
       fontFamily: 'Courier',
       textTheme: TextTheme(
+        // Display styles - Large headers
         displayLarge: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 32,
+          fontSize: 36, // Increased from 32
           fontWeight: FontWeight.w700,
           letterSpacing: 2.0,
         ),
         displayMedium: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 28,
+          fontSize: 32, // Increased from 28
           fontWeight: FontWeight.w700,
           letterSpacing: 1.5,
         ),
         displaySmall: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 24,
+          fontSize: 28, // Increased from 24
           fontWeight: FontWeight.w600,
           letterSpacing: 1.0,
         ),
+
+        // Headline styles - Section headers
         headlineLarge: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontSize: 24, // Increased from 20
+          fontWeight: FontWeight.w700, // Increased weight for better visibility
         ),
         headlineMedium: getHudTextStyle(
           color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontSize: 20, // Increased from 18
+          fontWeight: FontWeight.w700, // Increased weight
         ),
         headlineSmall: getHudTextStyle(
           color: Colors.white,
-          fontSize: 16,
+          fontSize: 18, // Increased from 16
           fontWeight: FontWeight.w600,
         ),
+
+        // Title styles - Card headers and important text
         titleLarge: getHudTextStyle(
           color: colorTheme.accent,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontSize: 20, // Increased from 18
+          fontWeight: FontWeight.w700, // Increased weight
         ),
         titleMedium: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 16,
+          fontSize: 18, // Increased from 16
           fontWeight: FontWeight.w600,
         ),
         titleSmall: getHudTextStyle(
           color: Colors.white,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
           fontWeight: FontWeight.w600,
         ),
+
+        // Body styles - Main content
         bodyLarge: getHudTextStyle(
           color: Colors.white,
-          fontSize: 16,
+          fontSize: 18, // Increased from 16
+          lineHeight: 1.5, // Better readability
         ),
         bodyMedium: getHudTextStyle(
           color: Colors.white,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
+          lineHeight: 1.5,
         ),
         bodySmall: getHudTextStyle(
-          color: Colors.white70,
-          fontSize: 12,
+          color: Colors.white.withOpacity(0.85), // Better contrast than white70
+          fontSize: 14, // Increased from 12
+          lineHeight: 1.4,
         ),
+
+        // Label styles - Small UI elements
         labelLarge: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
+          fontSize: 15, // Increased from 16 for better balance
+          fontWeight: FontWeight.w700, // Increased weight
         ),
         labelMedium: getHudTextStyle(
           color: Colors.white,
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
+          fontSize: 13, // Increased from 14 for better visibility
+          fontWeight: FontWeight.w700, // Increased weight
         ),
         labelSmall: getHudTextStyle(
-          color: Colors.grey,
-          fontSize: 10,
+          color: Colors.white.withOpacity(0.8), // Better contrast
+          fontSize: 11, // Increased from 12
+          fontWeight: FontWeight.w600, // Increased weight
+          letterSpacing: 0.8, // Added for clarity
         ),
       ),
 
@@ -104,12 +119,12 @@ class AppTheme {
         backgroundColor: kHudBackground,
         elevation: 0,
         centerTitle: true,
-        iconTheme: IconThemeData(color: colorTheme.primary),
+        iconTheme: IconThemeData(color: colorTheme.primary, size: 28), // Larger icons
         titleTextStyle: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 1.5,
+          fontSize: 22, // Increased from 20
+          fontWeight: FontWeight.bold,
+          letterSpacing: 1.2,
         ),
       ),
 
@@ -120,10 +135,11 @@ class AppTheme {
           foregroundColor: Colors.black,
           textStyle: const TextStyle(
             fontFamily: 'Courier',
-            fontWeight: FontWeight.w600,
-            letterSpacing: 1.0,
+            fontSize: 16, // Explicit size
+            fontWeight: FontWeight.w700, // Heavier weight
+            letterSpacing: 1.2,
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16), // More padding
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
@@ -135,10 +151,11 @@ class AppTheme {
           side: BorderSide(color: colorTheme.primary, width: 2),
           textStyle: const TextStyle(
             fontFamily: 'Courier',
-            fontWeight: FontWeight.w600,
-            letterSpacing: 1.0,
+            fontSize: 16, // Explicit size
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.2,
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
@@ -149,6 +166,7 @@ class AppTheme {
           foregroundColor: colorTheme.primary,
           textStyle: const TextStyle(
             fontFamily: 'Courier',
+            fontSize: 16,
             fontWeight: FontWeight.w600,
             letterSpacing: 1.0,
           ),
@@ -162,7 +180,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: colorTheme.primary.withValues(alpha:0.5)),
+          borderSide: BorderSide(color: colorTheme.primary.withValues(alpha: 0.5)),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
@@ -171,21 +189,22 @@ class AppTheme {
         ),
         labelStyle: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
         ),
         hintStyle: getHudTextStyle(
           color: Colors.grey,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
         ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16), // More padding
       ),
 
-      // Card theme - FIXED: Use CardThemeData instead of CardTheme
+      // Card theme
       cardTheme: CardThemeData(
-        color: kHudBackground.withValues(alpha:0.6),
+        color: kHudBackground.withValues(alpha: 0.6),
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: BorderSide(color: colorTheme.primary.withValues(alpha:0.3)),
+          side: BorderSide(color: colorTheme.primary.withValues(alpha: 0.3)),
         ),
       ),
 
@@ -194,25 +213,26 @@ class AppTheme {
         backgroundColor: kHudBackground,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: BorderSide(color: colorTheme.primary.withValues(alpha:0.5)),
+          side: BorderSide(color: colorTheme.primary.withValues(alpha: 0.5)),
         ),
         titleTextStyle: getHudTextStyle(
           color: colorTheme.primary,
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
+          fontSize: 20, // Increased from 18
+          fontWeight: FontWeight.w700,
         ),
         contentTextStyle: getHudTextStyle(
           color: Colors.white,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
+          lineHeight: 1.5,
         ),
       ),
 
-      // Icon theme
-      iconTheme: IconThemeData(color: colorTheme.primary),
+      // Icon theme - Larger icons for mobile
+      iconTheme: IconThemeData(color: colorTheme.primary, size: 24),
 
       // Divider theme
       dividerTheme: DividerThemeData(
-        color: colorTheme.primary.withValues(alpha:0.3),
+        color: colorTheme.primary.withValues(alpha: 0.3),
         thickness: 1,
       ),
 
@@ -229,9 +249,9 @@ class AppTheme {
         trackColor: WidgetStateProperty.resolveWith<Color?>(
               (Set<WidgetState> states) {
             if (states.contains(WidgetState.selected)) {
-              return colorTheme.primary.withValues(alpha:0.5);
+              return colorTheme.primary.withValues(alpha: 0.5);
             }
-            return Colors.grey.withValues(alpha:0.3);
+            return Colors.grey.withValues(alpha: 0.3);
           },
         ),
       ),
@@ -264,27 +284,27 @@ class AppTheme {
       // Slider theme
       sliderTheme: SliderThemeData(
         activeTrackColor: colorTheme.primary,
-        inactiveTrackColor: colorTheme.primary.withValues(alpha:0.3),
+        inactiveTrackColor: colorTheme.primary.withValues(alpha: 0.3),
         thumbColor: colorTheme.primary,
-        overlayColor: colorTheme.primary.withValues(alpha:0.3),
+        overlayColor: colorTheme.primary.withValues(alpha: 0.3),
       ),
 
       // Progress indicator theme
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: colorTheme.primary,
-        circularTrackColor: colorTheme.primary.withValues(alpha:0.3),
+        circularTrackColor: colorTheme.primary.withValues(alpha: 0.3),
       ),
 
       // Snackbar theme
       snackBarTheme: SnackBarThemeData(
-        backgroundColor: kHudBackground.withValues(alpha:0.95),
+        backgroundColor: kHudBackground.withValues(alpha: 0.95),
         contentTextStyle: getHudTextStyle(
           color: Colors.white,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: colorTheme.primary.withValues(alpha:0.5)),
+          side: BorderSide(color: colorTheme.primary.withValues(alpha: 0.5)),
         ),
         behavior: SnackBarBehavior.floating,
       ),
@@ -296,16 +316,19 @@ class AppTheme {
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: const TextStyle(
           fontFamily: 'Courier',
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
+          fontSize: 13, // Increased from 12
+          fontWeight: FontWeight.w700, // Heavier weight
           letterSpacing: 1.0,
         ),
         unselectedLabelStyle: const TextStyle(
           fontFamily: 'Courier',
-          fontSize: 11,
+          fontSize: 12, // Increased from 11
+          fontWeight: FontWeight.w500,
           letterSpacing: 0.5,
         ),
         type: BottomNavigationBarType.fixed,
+        selectedIconTheme: const IconThemeData(size: 28), // Larger selected icons
+        unselectedIconTheme: const IconThemeData(size: 24),
       ),
 
       // ListTile theme
@@ -314,11 +337,12 @@ class AppTheme {
         iconColor: colorTheme.primary,
         titleTextStyle: getHudTextStyle(
           color: Colors.white,
-          fontSize: 14,
+          fontSize: 16, // Increased from 14
+          fontWeight: FontWeight.w600,
         ),
         subtitleTextStyle: getHudTextStyle(
-          color: Colors.grey,
-          fontSize: 12,
+          color: Colors.white.withOpacity(0.7),
+          fontSize: 14, // Increased from 12
         ),
       ),
     );
@@ -326,11 +350,13 @@ class AppTheme {
 
   /// TEXT STYLES
   /// Get HUD-styled text with retro monospace font and glow effect
+  /// IMPROVED: Added lineHeight parameter for better readability
   static TextStyle getHudTextStyle({
     required Color color,
     double fontSize = 16.0,
     FontWeight fontWeight = FontWeight.normal,
     double letterSpacing = 0.5,
+    double? lineHeight, // NEW: Optional line height
   }) {
     return TextStyle(
       color: color,
@@ -338,14 +364,15 @@ class AppTheme {
       fontFamily: 'Courier',
       fontWeight: fontWeight,
       letterSpacing: letterSpacing,
+      height: lineHeight, // Line height for better readability
       shadows: [
         Shadow(
           blurRadius: 3.0,
-          color: color.withValues(alpha:0.8),
+          color: color.withValues(alpha: 0.8),
         ),
         Shadow(
           blurRadius: 10.0,
-          color: color.withValues(alpha:0.4),
+          color: color.withValues(alpha: 0.4),
         ),
       ],
     );
@@ -358,15 +385,15 @@ class AppTheme {
     required Color shadowColor,
   }) {
     return BoxDecoration(
-      color: kHudBackground.withValues(alpha:0.4),
+      color: kHudBackground.withValues(alpha: 0.4),
       borderRadius: BorderRadius.circular(12.0),
       border: Border.all(
-        color: borderColor.withValues(alpha:0.7),
+        color: borderColor.withValues(alpha: 0.7),
         width: 2.0,
       ),
       boxShadow: [
         BoxShadow(
-          color: shadowColor.withValues(alpha:0.3),
+          color: shadowColor.withValues(alpha: 0.3),
           blurRadius: 15.0,
           spreadRadius: 2.0,
         ),
@@ -381,7 +408,7 @@ class AppTheme {
   }) {
     return BoxDecoration(
       border: Border.all(
-        color: color.withValues(alpha:0.5),
+        color: color.withValues(alpha: 0.5),
         width: width,
       ),
       borderRadius: BorderRadius.circular(8.0),
@@ -398,8 +425,8 @@ class AppTheme {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: [
-          startColor.withValues(alpha:0.1),
-          endColor.withValues(alpha:0.05),
+          startColor.withValues(alpha: 0.1),
+          endColor.withValues(alpha: 0.05),
           kHudBackground,
         ],
       ),
@@ -422,7 +449,7 @@ class AppTheme {
         return Colors.deepPurpleAccent;
       case 'GENERAL':
       default:
-        return theme.accent.withValues(alpha:0.8);
+        return theme.accent.withValues(alpha: 0.8);
     }
   }
 
@@ -435,12 +462,12 @@ class AppTheme {
   }) {
     return [
       BoxShadow(
-        color: color.withValues(alpha:0.3),
+        color: color.withValues(alpha: 0.3),
         blurRadius: blurRadius,
         spreadRadius: spreadRadius,
       ),
       BoxShadow(
-        color: color.withValues(alpha:0.2),
+        color: color.withValues(alpha: 0.2),
         blurRadius: blurRadius * 2,
         spreadRadius: spreadRadius * 2,
       ),
@@ -452,15 +479,15 @@ class AppTheme {
     return [
       Shadow(
         blurRadius: 3.0,
-        color: color.withValues(alpha:0.8),
+        color: color.withValues(alpha: 0.8),
       ),
       Shadow(
         blurRadius: 10.0,
-        color: color.withValues(alpha:0.4),
+        color: color.withValues(alpha: 0.4),
       ),
       Shadow(
         blurRadius: 20.0,
-        color: color.withValues(alpha:0.2),
+        color: color.withValues(alpha: 0.2),
       ),
     ];
   }
@@ -470,9 +497,9 @@ class AppTheme {
   static LinearGradient getNeonGradient({required Color color}) {
     return LinearGradient(
       colors: [
-        color.withValues(alpha:0.0),
-        color.withValues(alpha:0.3),
-        color.withValues(alpha:0.0),
+        color.withValues(alpha: 0.0),
+        color.withValues(alpha: 0.3),
+        color.withValues(alpha: 0.0),
       ],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -483,9 +510,9 @@ class AppTheme {
   static RadialGradient getRadialGlow({required Color color}) {
     return RadialGradient(
       colors: [
-        color.withValues(alpha:0.4),
-        color.withValues(alpha:0.2),
-        color.withValues(alpha:0.0),
+        color.withValues(alpha: 0.4),
+        color.withValues(alpha: 0.2),
+        color.withValues(alpha: 0.0),
       ],
     );
   }

@@ -10,7 +10,7 @@ const String kNewsApiKey = '950a2861b71a40e9a07d17ae1e6d08a1';
 
 /// OpenRouter AI API Key
 /// Get your API key at: https://openrouter.ai/
-const String kOpenRouterApiKey = 'Open_router_api_key';
+const String kOpenRouterApiKey = '';
 
 /// Default city for weather
 const String kDefaultCity = 'Dhaka';
@@ -25,15 +25,14 @@ const String kNewsBaseUrl = 'https://newsapi.org/v2';
 const String kOpenRouterApiUrl = 'https://openrouter.ai/api/v1/chat/completions';
 
 /// OpenRouter AI model (using Claude via OpenRouter)
-const String kOpenRouterModel = 'anthropic/claude-3.5-sonnet';
+const String kOpenRouterModel = 'mistralai/mistral-7b-instruct-v0.2';
 
 
 /// Background color for HUD interface
 const Color kHudBackground = Colors.black;
 
 /// Placeholder image URL for news without images
-const String kPlaceholderImageUrl =
-    'https://placehold.co/150x100/33FFFF/000000?text=NO+IMG';
+const String kPlaceholderImageUrl = 'https://placehold.co/150x100/33FFFF/000000?text=NO+IMG';
 
 /// Breakpoint for desktop/mobile layouts
 const double kDesktopBreakpoint = 1000.0;
@@ -164,7 +163,7 @@ const Map<String, String> kSubContinentCountryNames = {
 'np': 'Nepal',
 };
 
-// ==================== NEWS SOURCE MODEL ====================
+// NEWS SOURCE MODEL
 
 /// News source configuration model
 class NewsSource {
@@ -181,7 +180,7 @@ this.language,
 });
 }
 
-// ==================== NEWS CATEGORIES ====================
+// NEWS CATEGORIES
 
 /// Available news categories
 const List<String> kNewsCategories = [
